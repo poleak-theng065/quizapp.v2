@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Zen",
+      "email": "zen@example.com",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "Zenny",
+      "email": "zenny@example.com",
+      "status": "inactive"
+    },
+    {
+        "id": 3,
+        "name": "Zara",
+        "email": "zara@example.com",
+        "status": "pending"
+    }
+  ]
+}

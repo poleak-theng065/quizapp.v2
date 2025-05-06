@@ -1,0 +1,173 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Quiz App Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./asset/CSS/sytle.css">
+  </head>
+  <body class="bg-white min-h-screen flex">
+    <!-- Sidebar -->
+    <aside
+      class="fixed inset-y-0 left-0 w-64 bg-orange-600 text-white flex flex-col"
+    >
+      <div
+        class="flex items-center justify-center h-20 border-b border-orange-500"
+      >
+        <img
+          alt="Quiz app logo with orange background and white text reading Quiz App"
+          class="w-12 h-12 rounded-full mr-3"
+          height="48"
+          src="https://storage.googleapis.com/a1aa/image/738af066-2388-4a3b-bc5e-7e7152da4bd0.jpg"
+          width="48"
+        />
+        <span class="text-2xl font-bold tracking-wide"> Quiz App </span>
+      </div>
+      <nav class="flex-1 px-4 py-6 overflow-y-auto">
+        <ul class="space-y-4">
+          <li>
+            <a
+              class="flex items-center px-4 py-3 rounded-md bg-orange-700 hover:bg-orange-800 transition-colors duration-200"
+              href="#"
+            >
+              <i class="fas fa-home mr-3 text-lg"> </i>
+              <span class="text-lg font-semibold"> Home </span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center px-4 py-3 rounded-md hover:bg-orange-700 transition-colors duration-200"
+              href="#"
+            >
+              <i class="fas fa-plus-circle mr-3 text-lg"> </i>
+              <span class="text-lg font-semibold"> Create Quiz </span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center px-4 py-3 rounded-md hover:bg-orange-700 transition-colors duration-200"
+              href="#"
+            >
+              <i class="fas fa-trophy mr-3 text-lg"> </i>
+              <span class="text-lg font-semibold"> Leaderboard </span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center px-4 py-3 rounded-md hover:bg-orange-700 transition-colors duration-200"
+              href="#"
+            >
+              <i class="fas fa-user-circle mr-3 text-lg"> </i>
+              <span class="text-lg font-semibold"> Account </span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center px-4 py-3 rounded-md hover:bg-orange-700 transition-colors duration-200"
+              href="#"
+            >
+              <i class="fas fa-cog mr-3 text-lg"> </i>
+              <span class="text-lg font-semibold"> Settings </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- Main content -->
+    <main
+      class="flex-1 ml-64 p-6 sm:p-10 bg-gray-50 min-h-screen flex flex-col"
+    >
+      <!-- Header -->
+      <header class="mb-10 border-b border-orange-300 pb-6">
+        <h1 class="text-5xl font-extrabold text-orange-600 tracking-tight">
+          Welcome to Quiz App
+        </h1>
+        <p class="mt-4 text-xl text-gray-700 max-w-3xl">
+          Your ultimate platform to create, play, and compete in quizzes. Dive
+          in and test your knowledge today!
+        </p>
+      </header>
+      <!-- Hero Banner -->
+      <section
+        class="relative bg-orange-600 rounded-lg shadow-lg overflow-hidden mb-10 flex flex-col sm:flex-row items-center min-h-[300px]"
+      >
+        <img
+          alt="Group celebrating quiz success"
+          class="w-full sm:w-1/2 h-80 sm:h-full object-cover"
+          src="https://storage.googleapis.com/a1aa/image/ac129af9-633a-4e95-b527-667045efa815.jpg"
+        />
+        <div
+          class="p-10 sm:p-16 text-white flex flex-col justify-center sm:w-1/2"
+        >
+          <h2 class="text-4xl font-bold mb-6">
+            Take quizzes, create your own, and top the leaderboard.
+          </h2>
+          <a
+            class="bg-white text-orange-600 font-bold py-4 px-8 rounded-md shadow hover:bg-gray-100 transition w-full sm:w-auto text-center"
+            href="#"
+          >
+            Get Started
+          </a>
+        </div>
+      </section>
+
+      <!-- Category Cards -->
+    <section>
+        
+    </section>
+    </main>
+    <!-- Mobile bottom nav -->
+    <nav
+      class="fixed bottom-0 left-0 right-0 bg-orange-600 text-white flex justify-around sm:hidden"
+    >
+      <a
+        aria-label="Home"
+        class="flex flex-col items-center py-2 px-3 hover:bg-orange-700 transition-colors duration-200"
+        href="#"
+      >
+        <i class="fas fa-home text-xl"> </i>
+        <span class="text-xs mt-1 font-semibold"> Home </span>
+      </a>
+      <a
+        aria-label="Create Quiz"
+        class="flex flex-col items-center py-2 px-3 hover:bg-orange-700 transition-colors duration-200"
+        href="#"
+      >
+        <i class="fas fa-plus-circle text-xl"> </i>
+        <span class="text-xs mt-1 font-semibold"> Create </span>
+      </a>
+      <a
+        aria-label="Leaderboard"
+        class="flex flex-col items-center py-2 px-3 hover:bg-orange-700 transition-colors duration-200"
+        href="#"
+      >
+        <i class="fas fa-trophy text-xl"> </i>
+        <span class="text-xs mt-1 font-semibold"> Leaderboard </span>
+      </a>
+      <a
+        aria-label="Account"
+        class="flex flex-col items-center py-2 px-3 hover:bg-orange-700 transition-colors duration-200"
+        href="#"
+      >
+        <i class="fas fa-user-circle text-xl"> </i>
+        <span class="text-xs mt-1 font-semibold"> Account </span>
+      </a>
+      <a
+        aria-label="Settings"
+        class="flex flex-col items-center py-2 px-3 hover:bg-orange-700 transition-colors duration-200"
+        href="#"
+      >
+        <i class="fas fa-cog text-xl"> </i>
+        <span class="text-xs mt-1 font-semibold"> Settings </span>
+      </a>
+    </nav>
+  </body>
+</html>

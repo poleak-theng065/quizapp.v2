@@ -1,0 +1,110 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Quiz App Register
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body class="min-h-screen bg-white flex items-center justify-center px-4 py-8">
+  <div class="w-full max-w-md bg-white border-2 border-orange-500 rounded-lg shadow-lg p-6 sm:p-8">
+   <div class="flex justify-center mb-6">
+    <img alt="Quiz app logo with orange background and white text reading Quiz App" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full" height="96" src="https://storage.googleapis.com/a1aa/image/738af066-2388-4a3b-bc5e-7e7152da4bd0.jpg" width="96"/>
+   </div>
+   <h1 class="text-2xl sm:text-3xl font-bold text-center text-orange-600 mb-6 sm:mb-8">
+    Create Your Quiz App Account
+   </h1>
+   <form action="#" class="space-y-5 sm:space-y-6" method="POST">
+    <div>
+     <label class="block text-black font-semibold mb-2 text-sm sm:text-base" for="fullname">
+      Full Name
+     </label>
+     <div class="relative">
+      <input class="w-full border border-orange-400 rounded-md py-2.5 sm:py-3 px-3 sm:px-4 pr-10 text-black placeholder-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm sm:text-base" id="fullname" name="fullname" placeholder="John Doe" required="" type="text"/>
+      <span class="absolute inset-y-0 right-3 flex items-center text-orange-500 text-sm sm:text-base">
+       <i class="fas fa-user">
+       </i>
+      </span>
+     </div>
+    </div>
+    <div>
+     <label class="block text-black font-semibold mb-2 text-sm sm:text-base" for="email">
+      Email Address
+     </label>
+     <div class="relative">
+      <input class="w-full border border-orange-400 rounded-md py-2.5 sm:py-3 px-3 sm:px-4 pr-10 text-black placeholder-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm sm:text-base" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+      <span class="absolute inset-y-0 right-3 flex items-center text-orange-500 text-sm sm:text-base">
+       <i class="fas fa-envelope">
+       </i>
+      </span>
+     </div>
+    </div>
+    <div>
+     <label class="block text-black font-semibold mb-2 text-sm sm:text-base" for="password">
+      Password
+     </label>
+     <div class="relative">
+      <input class="w-full border border-orange-400 rounded-md py-2.5 sm:py-3 px-3 sm:px-4 pr-10 text-black placeholder-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm sm:text-base" id="password" name="password" placeholder="Create a password" required="" type="password"/>
+      <span class="absolute inset-y-0 right-3 flex items-center text-orange-500 cursor-pointer text-sm sm:text-base" onclick="togglePassword()">
+       <i class="fas fa-eye" id="eyeIcon">
+       </i>
+      </span>
+     </div>
+    </div>
+    <div>
+     <label class="block text-black font-semibold mb-2 text-sm sm:text-base" for="confirmPassword">
+      Confirm Password
+     </label>
+     <div class="relative">
+      <input class="w-full border border-orange-400 rounded-md py-2.5 sm:py-3 px-3 sm:px-4 pr-10 text-black placeholder-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm sm:text-base" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" required="" type="password"/>
+      <span class="absolute inset-y-0 right-3 flex items-center text-orange-500 cursor-pointer text-sm sm:text-base" onclick="toggleConfirmPassword()">
+       <i class="fas fa-eye" id="eyeIconConfirm">
+       </i>
+      </span>
+     </div>
+    </div>
+    <button class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-md transition-colors duration-300 text-sm sm:text-base" type="submit">
+     Register
+    </button>
+   </form>
+   <p class="mt-6 text-center text-black text-sm sm:text-base">
+    Already have an account?
+    <a class="text-orange-600 font-semibold hover:text-orange-800" href="logIn.html">
+     Log in
+    </a>
+   </p>
+  </div>
+  <script>
+   function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('eyeIcon');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+   function toggleConfirmPassword() {
+      const passwordInput = document.getElementById('confirmPassword');
+      const eyeIcon = document.getElementById('eyeIconConfirm');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+  </script>
+ </body>
+</html>
