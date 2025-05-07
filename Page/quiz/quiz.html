@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive Fixed Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
+    </style>
+</head>
+<body class="bg-white h-full flex items-center justify-center">
+    <div class=" p-6 w-full h-full flex flex-col justify-between rounded-lg max-w-4xl">
+        <div class="flex justify-between items-center mb-8 px-2 sm:px-6">
+            <button 
+              onclick="leaveQuiz()" 
+              class="border-2 border-red-500 text-red-500 rounded-3xl px-6 py-2 font-semibold hover:bg-red-500 hover:text-white transition"
+              aria-label="Leave Quiz"
+            >
+              Leave
+            </button>
+            <div class="border-2 border-orange-500 rounded-3xl px-8 py-3 text-lg sm:text-xl font-medium min-w-[120px] text-center">Time: <span id="time">00:30</span></div>
+            <div class="border-2 border-orange-500 rounded-3xl px-8 py-3 text-lg sm:text-xl font-medium min-w-[120px] text-center">Score: <span id="score">0</span></div>
+        </div>
+
+        <div class="mb-8 px-2 sm:px-6">
+            <div class="border-2 border-orange-500 rounded-3xl py-12 sm:py-16 text-lg sm:text-xl font-medium text-center max-w-full mx-auto">
+                What is the capital of France?
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-14 gap-y-10 px-2 sm:px-6 mb-8 w-full">
+            <button class="border-2 border-orange-500 rounded-3xl py-6 text-lg sm:text-xl font-medium hover:bg-orange-100 transition w-full">A) Berlin</button>
+            <button class="border-2 border-orange-500 rounded-3xl py-6 text-lg sm:text-xl font-medium hover:bg-orange-100 transition w-full">B) Madrid</button>
+            <button class="border-2 border-orange-500 rounded-3xl py-6 text-lg sm:text-xl font-medium hover:bg-orange-100 transition w-full">C) Paris</button>
+            <button class="border-2 border-orange-500 rounded-3xl py-6 text-lg sm:text-xl font-medium hover:bg-orange-100 transition w-full">D) Rome</button>
+        </div>
+
+        <div class="text-center text-base sm:text-lg font-medium">Quiz 1 / 20</div>
+    </div>
+
+    <script>
+        let score = 0;
+        let timeLeft = 30;
+        const timeEl = document.getElementById('time');
+        const scoreEl = document.getElementById('score');
+
+        function updateTimer() {
+            if (timeLeft > 0) {
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+                let seconds = (timeLeft % 60).toString().padStart(2, '0');
+                timeEl.textContent = `${minutes}:${seconds}`;
+            } else {
+                clearInterval(timerInterval);
+                alert('Time is up!');
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+
+        function selectAnswer(answer) {
+            // Example correct answer is C
+            if (answer === 'C') {
+                score++;
+                scoreEl.textContent = score;
+                alert('Correct!');
+            } else {
+                alert('Wrong answer!');
+            }
+        }
+
+        function leaveQuiz() {
+            if (confirm('Are you sure you want to leave the quiz? Your progress will be lost.')) {
+                // Redirect or close quiz page
+                window.location.href = '../../index.html'; // Change to desired URL
+            }
+        }
+    </script>
+</body>
+</html>
