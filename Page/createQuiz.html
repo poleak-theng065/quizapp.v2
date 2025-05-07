@@ -1,0 +1,439 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Create Your Own Quiz - Quiz App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      @media (min-width: 640px) {
+        main {
+          margin-left: 16rem; /* sidebar width */
+          padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+        }
+        #topMobileNav {
+          display: none !important;
+        }
+      }
+      @media (max-width: 639px) {
+        main {
+          margin-left: 0 !important;
+          padding: 5.5rem 1.5rem 1.5rem 1.5rem; /* top nav height + spacing */
+        }
+        #sidebar {
+          display: none !important;
+        }
+        #topMobileNav {
+          display: flex !important;
+        }
+      }
+      #topMobileNav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3.5rem;
+        background-color: #ea580c; /* Tailwind orange-600 */
+        color: white;
+        z-index: 50;
+        display: none;
+        align-items: center;
+        justify-content: space-around;
+      }
+      #topMobileNav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        transition: background-color 0.2s;
+      }
+      #topMobileNav a:hover {
+        background-color: #c2410c; /* Tailwind orange-700 */
+      }
+      #topMobileNav i {
+        font-size: 1.25rem;
+      }
+    </style>
+  </head>
+  <body class="bg-white min-h-screen flex flex-col">
+    <!-- Sidebar -->
+    <aside
+      id="sidebar"
+      class="fixed inset-y-0 left-0 w-64 bg-orange-600 text-white flex flex-col z-40"
+    >
+      <div
+        class="flex items-center justify-center h-20 border-b border-orange-500"
+      >
+        <img
+          alt="Quiz app logo with orange background and white text reading Quiz App"
+          class="w-12 h-12 rounded-full mr-3"
+          height="48"
+          src="https://storage.googleapis.com/a1aa/image/738af066-2388-4a3b-bc5e-7e7152da4bd0.jpg"
+          width="48"
+        />
+        <span class="text-2xl font-bold tracking-wide"> Quiz App </span>
+      </div>
+      <nav class="flex-1 px-4 py-6 overflow-y-auto">
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="index.html"
+              class="flex items-center px-4 py-3 rounded-md hover:bg-orange-700 transition-colors duration-200"
+            >
+              <i class="fas fa-home mr-3 text-lg"></i>
+              <span class="text-lg font-semibold"> Home </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center px-4 py-3 rounded-md bg-orange-700 hover:bg-orange-800 transition-colors duration-200"
+            >
+              <i class="fas fa-plus-circle mr-3 text-lg"></i>
+              <span class="text-lg font-semibold"> Create Quiz </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="leaderboard.html"
+              class="flex items-center px-4 py-3 rounded-md hover:bg-orange-700 transition-colors duration-200"
+            >
+              <i class="fas fa-trophy mr-3 text-lg"></i>
+              <span class="text-lg font-semibold"> Leaderboard </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="account.html"
+              class="flex items-center px-4 py-3 rounded-md hover:bg-orange-700 transition-colors duration-200"
+            >
+              <i class="fas fa-user-circle mr-3 text-lg"></i>
+              <span class="text-lg font-semibold"> Account </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="settings.html"
+              class="flex items-center px-4 py-3 rounded-md hover:bg-orange-700 transition-colors duration-200"
+            >
+              <i class="fas fa-cog mr-3 text-lg"></i>
+              <span class="text-lg font-semibold"> Settings </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Top mobile nav -->
+    <nav id="topMobileNav" role="navigation" aria-label="Mobile top navigation">
+      <a href="index.html" aria-label="Home">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="#" aria-label="Create Quiz">
+        <i class="fas fa-plus-circle"></i>
+        <span>Create</span>
+      </a>
+      <a href="leaderboard.html" aria-label="Leaderboard">
+        <i class="fas fa-trophy"></i>
+        <span>Leaderboard</span>
+      </a>
+      <a href="account.html" aria-label="Account">
+        <i class="fas fa-user-circle"></i>
+        <span>Account</span>
+      </a>
+      <a href="settings.html" aria-label="Settings">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <!-- Main content -->
+    <main
+      id="mainContent"
+      class="flex-1 bg-gray-50 min-h-screen flex flex-col overflow-auto"
+    >
+      <div class="p-6 sm:p-10 max-w-7xl w-full mx-auto flex flex-col space-y-10">
+        <!-- Title and Create Quiz Button -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <h1 class="text-5xl font-extrabold text-orange-600 tracking-tight">
+            Create Your Own Quiz
+          </h1>
+          <button
+            id="openCreateModalBtn"
+            class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-md shadow transition flex items-center space-x-3"
+            type="button"
+          >
+            <i class="fas fa-plus-circle"></i>
+            <span>Create Quiz</span>
+          </button>
+        </div>
+
+        <!-- Created Quizzes List -->
+        <section>
+          <h2 class="text-3xl font-semibold text-gray-800 mb-6">
+            Your Created Quizzes
+          </h2>
+          <div
+            id="quizzesList"
+            class="space-y-6 max-h-[60vh] overflow-y-auto pr-2"
+            aria-live="polite"
+          >
+            <!-- Quiz cards will be appended here -->
+            <p class="text-gray-500 italic">No quizzes created yet.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Create Quiz Modal -->
+    <div
+      id="createQuizModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div
+        class="bg-white rounded-xl shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
+      >
+        <button
+          id="closeModalBtn"
+          class="absolute top-4 right-4 text-gray-600 hover:text-gray-900"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-times text-2xl"></i>
+        </button>
+        <h3
+          id="modalTitle"
+          class="text-3xl font-extrabold text-orange-600 mb-6 text-center"
+        >
+          Create New Quiz
+        </h3>
+        <form id="createQuizForm" class="space-y-6">
+          <div>
+            <label
+              for="quizTitle"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+              >Quiz Title <span class="text-red-600">*</span></label
+            >
+            <input
+              type="text"
+              id="quizTitle"
+              name="quizTitle"
+              required
+              placeholder="Enter quiz title"
+              class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            />
+          </div>
+          <div>
+            <label
+              for="quizDescription"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+              >Description</label
+            >
+            <textarea
+              id="quizDescription"
+              name="quizDescription"
+              rows="3"
+              placeholder="Brief description of the quiz"
+              class="w-full border border-gray-300 rounded-md px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            ></textarea>
+          </div>
+          <div>
+            <label
+              for="quizCategory"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+              >Category <span class="text-red-600">*</span></label
+            >
+            <select
+              id="quizCategory"
+              name="quizCategory"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            >
+              <option value="" disabled selected>Select a category</option>
+              <option>Mathematics</option>
+              <option>Physics</option>
+              <option>Chemistry</option>
+              <option>History</option>
+              <option>Geography</option>
+              <option>Literature</option>
+              <option>Computer Science</option>
+              <option>Biology</option>
+              <option>Art</option>
+              <option>Music</option>
+            </select>
+          </div>
+          <div class="flex justify-end space-x-4">
+            <button
+              type="button"
+              id="cancelCreateBtn"
+              class="py-3 px-6 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 transition"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-md shadow transition"
+            >
+              Create Quiz
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const createQuizModal = document.getElementById('createQuizModal');
+      const openCreateModalBtn = document.getElementById('openCreateModalBtn');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const cancelCreateBtn = document.getElementById('cancelCreateBtn');
+      const createQuizForm = document.getElementById('createQuizForm');
+      const quizzesList = document.getElementById('quizzesList');
+
+      // Store quizzes in memory (for demo)
+      let quizzes = [];
+
+      // Open modal
+      openCreateModalBtn.addEventListener('click', () => {
+        createQuizModal.classList.remove('hidden');
+        createQuizForm.reset();
+        createQuizForm.quizTitle.focus();
+      });
+
+      // Close modal function
+      function closeModal() {
+        createQuizModal.classList.add('hidden');
+      }
+
+      closeModalBtn.addEventListener('click', closeModal);
+      cancelCreateBtn.addEventListener('click', closeModal);
+
+      // Close modal on outside click
+      createQuizModal.addEventListener('click', (e) => {
+        if (e.target === createQuizModal) {
+          closeModal();
+        }
+      });
+
+      // Render quizzes list
+      function renderQuizzes() {
+        quizzesList.innerHTML = '';
+        if (quizzes.length === 0) {
+          quizzesList.innerHTML =
+            '<p class="text-gray-500 italic">No quizzes created yet.</p>';
+          return;
+        }
+        quizzes.forEach((quiz, index) => {
+          const quizCard = document.createElement('div');
+          quizCard.className =
+            'bg-white rounded-xl shadow-md p-6 flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0 sm:space-x-6';
+          quizCard.setAttribute('tabindex', '0');
+          quizCard.setAttribute('aria-label', `Quiz titled ${quiz.title}`);
+
+          // Left info
+          const infoDiv = document.createElement('div');
+          infoDiv.className = 'flex-1 min-w-0';
+
+          const title = document.createElement('h3');
+          title.className =
+            'text-xl font-bold text-orange-600 truncate';
+          title.textContent = quiz.title;
+
+          const description = document.createElement('p');
+          description.className =
+            'text-gray-600 text-sm mt-1 truncate';
+          description.textContent = quiz.description || 'No description';
+
+          infoDiv.appendChild(title);
+          infoDiv.appendChild(description);
+
+          // Middle details
+          const detailsDiv = document.createElement('div');
+          detailsDiv.className =
+            'flex space-x-6 text-gray-700 text-sm font-semibold';
+
+          const questionsCount = document.createElement('div');
+          questionsCount.className = 'flex items-center space-x-2';
+          questionsCount.innerHTML =
+            '<i class="fas fa-question-circle text-orange-500"></i>' +
+            `<span>${quiz.questions} question${quiz.questions !== 1 ? 's' : ''}</span>`;
+
+          const time = document.createElement('div');
+          time.className = 'flex items-center space-x-2';
+          time.innerHTML =
+            '<i class="fas fa-clock text-orange-500"></i>' +
+            `<span>${quiz.time} min${quiz.time !== 1 ? 's' : ''}</span>`;
+
+          detailsDiv.appendChild(questionsCount);
+          detailsDiv.appendChild(time);
+
+          // Right start button
+          const startBtn = document.createElement('button');
+          startBtn.className =
+            'bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-md shadow transition flex items-center space-x-2';
+          startBtn.type = 'button';
+          startBtn.innerHTML =
+            '<span>Start</span><i class="fas fa-arrow-right"></i>';
+          startBtn.addEventListener('click', () => {
+            alert(`Starting quiz: ${quiz.title}`);
+          });
+
+          quizCard.appendChild(infoDiv);
+          quizCard.appendChild(detailsDiv);
+          quizCard.appendChild(startBtn);
+
+          quizzesList.appendChild(quizCard);
+        });
+      }
+
+      // Handle form submission
+      createQuizForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = createQuizForm.quizTitle.value.trim();
+        const description = createQuizForm.quizDescription.value.trim();
+        const category = createQuizForm.quizCategory.value;
+
+        if (!title) {
+          alert('Please enter a quiz title.');
+          return;
+        }
+        if (!category) {
+          alert('Please select a quiz category.');
+          return;
+        }
+
+        // For demo, generate random questions count and time
+        const questions = Math.floor(Math.random() * 10) + 5; // 5-14 questions
+        const time = questions * 2; // 2 minutes per question approx
+
+        quizzes.push({
+          title,
+          description,
+          category,
+          questions,
+          time,
+        });
+
+        renderQuizzes();
+        closeModal();
+      });
+
+      // Initial render
+      renderQuizzes();
+    </script>
+  </body>
+</html>

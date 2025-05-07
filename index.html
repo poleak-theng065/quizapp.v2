@@ -12,12 +12,13 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./asset/CSS/sytle.css" />
+    <link rel="stylesheet" href="./asset/CSS/sytle.css">
   </head>
-  <body class="bg-white min-h-screen flex">
+  <body class="bg-white min-h-screen flex flex-col">
     <!-- Sidebar -->
     <aside
-      class="fixed inset-y-0 left-0 w-64 bg-orange-600 text-white flex flex-col"
+      id="sidebar"
+      class="fixed inset-y-0 left-0 w-64 bg-orange-600 text-white flex flex-col z-40"
     >
       <div
         class="flex items-center justify-center h-20 border-b border-orange-500"
@@ -81,125 +82,557 @@
         </ul>
       </nav>
     </aside>
-    <!-- Main content -->
-    <main
-      class="flex-1 ml-64 p-6 sm:p-10 bg-gray-50 min-h-screen flex flex-col"
-    >
-      <!-- Header -->
-      <header class="mb-10 border-b border-orange-300 pb-6">
-        <h1 class="text-5xl font-extrabold text-orange-600 tracking-tight">
-          Welcome to Quiz App
-        </h1>
-        <p class="mt-4 text-xl text-gray-700 max-w-3xl">
-          Your ultimate platform to create, play, and compete in quizzes. Dive
-          in and test your knowledge today!
-        </p>
-      </header>
-      <!-- Hero Banner -->
-      <section
-        class="relative bg-orange-600 rounded-lg shadow-lg overflow-hidden mb-10 flex flex-col sm:flex-row items-center min-h-[300px]"
-      >
-        <img
-          alt="Group celebrating quiz success"
-          class="w-full sm:w-1/2 h-80 sm:h-full object-cover"
-          src="https://assets.designtemplate.io/Online-education-Concept-Student-3D-Character-Illustration-700.webp"
-        />
-        <div
-          class="p-10 sm:p-16 text-white flex flex-col justify-center sm:w-1/2"
-        >
-          <h2 class="text-4xl font-bold mb-6">
-            Take quizzes, create your own, and top the leaderboard.
-          </h2>
-          <a
-            class="bg-white text-orange-600 font-bold py-4 px-8 rounded-md shadow hover:bg-gray-100 transition w-full sm:w-auto text-center"
-            href="#"
-          >
-            Get Started
-          </a>
-        </div>
-      </section>
 
-      <!-- Category Cards -->
-      <section class="flex-1 flex items-center justify-center m-0 p-0">
-        <div class="flex flex-col sm:flex-row gap-6 max-w-6xl w-full">
-          <div
-        class="flex items-center border-2 border-orange-500 rounded-lg p-6 flex-1 min-w-[280px]"
-          >
-        <div class="text-orange-500 text-6xl flex-shrink-0">
-          <i class="fas fa-medal"></i>
-        </div>
-        <div class="ml-6">
-          <p class="text-black text-lg font-normal">Your Total Score</p>
-          <p class="text-black text-4xl font-normal mt-1">1244</p>
-        </div>
-          </div>
-          <div
-        class="flex items-center border-2 border-orange-500 rounded-lg p-6 flex-1 min-w-[280px]"
-          >
-        <div class="text-orange-500 text-6xl flex-shrink-0">
-          <i class="fas fa-trophy"></i>
-        </div>
-        <div class="ml-6">
-          <p class="text-black text-sm font-normal">
-            Your Ranked in Leaderboard is:
-          </p>
-          <p class="text-black text-4xl font-normal mt-1">43</p>
-        </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Quiz Card -->
-      <h1>Choose </h1>
-      
-    </main>
-    <!-- Mobile bottom nav -->
-    <nav
-      class="fixed bottom-0 left-0 right-0 bg-orange-600 text-white flex justify-around sm:hidden"
-    >
-      <a
-        aria-label="Home"
-        class="flex flex-col items-center py-2 px-3 hover:bg-orange-700 transition-colors duration-200"
-        href="#"
-      >
-        <i class="fas fa-home text-xl"> </i>
-        <span class="text-xs mt-1 font-semibold"> Home </span>
+    <!-- Top mobile nav -->
+    <nav id="topMobileNav" role="navigation" aria-label="Mobile top navigation">
+      <a href="#" aria-label="Home">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
       </a>
-      <a
-        aria-label="Create Quiz"
-        class="flex flex-col items-center py-2 px-3 hover:bg-orange-700 transition-colors duration-200"
-        href="#"
-      >
-        <i class="fas fa-plus-circle text-xl"> </i>
-        <span class="text-xs mt-1 font-semibold"> Create </span>
+      <a href="#" aria-label="Create Quiz">
+        <i class="fas fa-plus-circle"></i>
+        <span>Create</span>
       </a>
-      <a
-        aria-label="Leaderboard"
-        class="flex flex-col items-center py-2 px-3 hover:bg-orange-700 transition-colors duration-200"
-        href="#"
-      >
-        <i class="fas fa-trophy text-xl"> </i>
-        <span class="text-xs mt-1 font-semibold"> Leaderboard </span>
+      <a href="#" aria-label="Leaderboard">
+        <i class="fas fa-trophy"></i>
+        <span>Leaderboard</span>
       </a>
-      <a
-        aria-label="Account"
-        class="flex flex-col items-center py-2 px-3 hover:bg-orange-700 transition-colors duration-200"
-        href="#"
-      >
-        <i class="fas fa-user-circle text-xl"> </i>
-        <span class="text-xs mt-1 font-semibold"> Account </span>
+      <a href="#" aria-label="Account">
+        <i class="fas fa-user-circle"></i>
+        <span>Account</span>
       </a>
-      <a
-        aria-label="Settings"
-        class="flex flex-col items-center py-2 px-3 hover:bg-orange-700 transition-colors duration-200"
-        href="#"
-      >
-        <i class="fas fa-cog text-xl"> </i>
-        <span class="text-xs mt-1 font-semibold"> Settings </span>
+      <a href="#" aria-label="Settings">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
       </a>
     </nav>
 
-    <!-- Quiz Card Section -->
-    
+    <!-- Main content -->
+    <main
+      id="mainContent"
+      class="flex-1 bg-gray-50 min-h-screen flex flex-col"
+    >
+      <div class="p-6 sm:p-10">
+        <!-- Header -->
+        <header class="mb-10 border-b border-orange-300 pb-6">
+          <h1 class="text-5xl font-extrabold text-orange-600 tracking-tight">
+            Welcome to Quiz App
+          </h1>
+          <p class="mt-4 text-xl text-gray-700 max-w-3xl">
+            Your ultimate platform to create, play, and compete in quizzes. Dive
+            in and test your knowledge today!
+          </p>
+        </header>
+        <!-- Hero Banner -->
+        <section
+          class="relative bg-orange-600 rounded-lg shadow-lg overflow-hidden mb-10 flex flex-col sm:flex-row items-center min-h-[300px]"
+        >
+          <img
+            alt="Group celebrating quiz success"
+            class="w-full sm:w-1/2 h-80 sm:h-full object-cover"
+            src="https://assets.designtemplate.io/Online-education-Concept-Student-3D-Character-Illustration-700.webp"
+          />
+          <div
+            class="p-10 sm:p-16 text-white flex flex-col justify-center sm:w-1/2"
+          >
+            <h2 class="text-4xl font-bold mb-6">
+              Take quizzes, create your own, and top the leaderboard.
+            </h2>
+            <a
+              class="bg-white text-orange-600 font-bold py-4 px-8 rounded-md shadow hover:bg-gray-100 transition w-full sm:w-auto text-center"
+              href="#"
+            >
+              Get Started
+            </a>
+          </div>
+        </section>
+
+        <!-- Category Cards -->
+        <section class="flex-1 flex items-center justify-center m-0 p-0">
+          <div class="flex flex-col sm:flex-row gap-6 max-w-6xl w-full">
+            <div
+              class="flex items-center border-2 border-orange-500 rounded-lg p-6 flex-1 min-w-[280px]"
+            >
+              <div class="text-orange-500 text-6xl flex-shrink-0">
+                <i class="fas fa-medal"></i>
+              </div>
+              <div class="ml-6">
+                <p class="text-black text-lg font-normal">Your Total Score</p>
+                <p class="text-black text-4xl font-normal mt-1">1244</p>
+              </div>
+            </div>
+            <div
+              class="flex items-center border-2 border-orange-500 rounded-lg p-6 flex-1 min-w-[280px]"
+            >
+              <div class="text-orange-500 text-6xl flex-shrink-0">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div class="ml-6">
+                <p class="text-black text-sm font-normal">
+                  Your Ranked in Leaderboard is:
+                </p>
+                <p class="text-black text-4xl font-normal mt-1">43</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz Card -->
+        <section
+          class="mt-10 mb-10 flex flex-col items-center px-4 max-w-7xl mx-auto w-full"
+        >
+          <h1
+            class="text-5xl font-extrabold text-orange-300 mb-8 drop-shadow-lg select-none w-full max-w-5xl text-center"
+          >
+            <span class="block text-orange-500">Choose Your Quiz</span>
+            <span class="block text-lg text-gray-700 mt-2">
+              Select a category and test your knowledge!
+            </span>
+          </h1>
+          <div
+            class="card-section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-center w-full max-w-5xl"
+          >
+            <!-- Card 1 -->
+            <div
+              aria-label="Quiz Subject Card for Mathematics"
+              class="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500 cursor-pointer relative overflow-hidden group"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="Mathematics symbol sigma in bright orange on black circular background"
+                class="absolute -top-10 -right-10 w-36 h-36 opacity-20 pointer-events-none select-none"
+                height="110"
+                loading="lazy"
+                src="https://storage.googleapis.com/a1aa/image/fcfe657c-ae6f-4f4c-5c03-17b2e7e314de.jpg"
+                width="110"
+              />
+              <div
+                class="relative z-10 p-7 flex flex-col space-y-4 transition-colors duration-300 group-hover:bg-black/30 rounded-3xl"
+              >
+                <div class="flex items-center space-x-5">
+                  <div
+                    aria-hidden="true"
+                    class="flex-shrink-0 rounded-full bg-black p-3 shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-110"
+                  >
+                    <img
+                      alt="Black circular badge with bright orange sigma symbol representing Mathematics"
+                      class="w-16 h-16"
+                      height="64"
+                      loading="lazy"
+                      src="https://storage.googleapis.com/a1aa/image/79c4c147-c390-4d79-8fce-fb20f0b4de0a.jpg"
+                      width="64"
+                    />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h2
+                      class="text-white text-2xl font-extrabold tracking-tight drop-shadow-lg truncate"
+                      title="Mathematics"
+                    >
+                      Mathematics
+                    </h2>
+                    <p
+                      class="text-orange-100 text-xs font-semibold tracking-wide drop-shadow-md max-w-xs"
+                    >
+                      Test your skills in algebra, geometry, calculus, and more.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex space-x-5">
+                  <div
+                    class="flex items-center space-x-2 bg-white bg-opacity-90 rounded-full px-4 py-1.5 shadow-md hover:bg-white transition-colors duration-300"
+                  >
+                    <i class="fas fa-list-ol text-orange-600 text-base"></i>
+                    <span class="text-orange-700 font-semibold text-xs select-none"
+                      >15 Quizzes</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center space-x-2 bg-black bg-opacity-80 rounded-full px-4 py-1.5 shadow-md hover:bg-black transition-colors duration-300"
+                  >
+                    <i class="fas fa-clock text-orange-400 text-base"></i>
+                    <span class="text-orange-300 font-semibold text-xs select-none"
+                      >30 mins</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="mt-3 self-start bg-black bg-opacity-80 hover:bg-opacity-100 text-orange-400 font-bold py-2.5 px-7 rounded-full shadow-lg transition duration-300 flex items-center space-x-2.5"
+                  type="button"
+                >
+                  <span class="text-sm">Start Quiz</span>
+                  <i class="fas fa-arrow-right text-sm"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div
+              aria-label="Quiz Subject Card for Physics"
+              class="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500 cursor-pointer relative overflow-hidden group"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="Physics atom symbol in bright orange on black circular background"
+                class="absolute -top-10 -right-10 w-36 h-36 opacity-20 pointer-events-none select-none"
+                height="110"
+                loading="lazy"
+                src="https://storage.googleapis.com/a1aa/image/c0b58ee4-29ad-4e82-41a6-651a0359b7bc.jpg"
+                width="110"
+              />
+              <div
+                class="relative z-10 p-7 flex flex-col space-y-4 transition-colors duration-300 group-hover:bg-black/30 rounded-3xl"
+              >
+                <div class="flex items-center space-x-5">
+                  <div
+                    aria-hidden="true"
+                    class="flex-shrink-0 rounded-full bg-black p-3 shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-110"
+                  >
+                    <img
+                      alt="Black circular badge with bright orange atom symbol representing Physics"
+                      class="w-16 h-16"
+                      height="64"
+                      loading="lazy"
+                      src="https://storage.googleapis.com/a1aa/image/cb91b639-04eb-4d73-0d55-0f85eda84b7d.jpg"
+                      width="64"
+                    />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h2
+                      class="text-white text-2xl font-extrabold tracking-tight drop-shadow-lg truncate"
+                      title="Physics"
+                    >
+                      Physics
+                    </h2>
+                    <p
+                      class="text-orange-100 text-xs font-semibold tracking-wide drop-shadow-md max-w-xs"
+                    >
+                      Explore the laws of nature, motion, and energy.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex space-x-5">
+                  <div
+                    class="flex items-center space-x-2 bg-white bg-opacity-90 rounded-full px-4 py-1.5 shadow-md hover:bg-white transition-colors duration-300"
+                  >
+                    <i class="fas fa-list-ol text-orange-600 text-base"></i>
+                    <span class="text-orange-700 font-semibold text-xs select-none"
+                      >12 Quizzes</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center space-x-2 bg-black bg-opacity-80 rounded-full px-4 py-1.5 shadow-md hover:bg-black transition-colors duration-300"
+                  >
+                    <i class="fas fa-clock text-orange-400 text-base"></i>
+                    <span class="text-orange-300 font-semibold text-xs select-none"
+                      >25 mins</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="mt-3 self-start bg-black bg-opacity-80 hover:bg-opacity-100 text-orange-400 font-bold py-2.5 px-7 rounded-full shadow-lg transition duration-300 flex items-center space-x-2.5"
+                  type="button"
+                >
+                  <span class="text-sm">Start Quiz</span>
+                  <i class="fas fa-arrow-right text-sm"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div
+              aria-label="Quiz Subject Card for Chemistry"
+              class="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500 cursor-pointer relative overflow-hidden group"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="Chemistry flask symbol in bright orange on black circular background"
+                class="absolute -top-10 -right-10 w-36 h-36 opacity-20 pointer-events-none select-none"
+                height="110"
+                loading="lazy"
+                src="https://storage.googleapis.com/a1aa/image/08b33a96-185a-412c-89bf-dc75d948a016.jpg"
+                width="110"
+              />
+              <div
+                class="relative z-10 p-7 flex flex-col space-y-4 transition-colors duration-300 group-hover:bg-black/30 rounded-3xl"
+              >
+                <div class="flex items-center space-x-5">
+                  <div
+                    aria-hidden="true"
+                    class="flex-shrink-0 rounded-full bg-black p-3 shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-110"
+                  >
+                    <img
+                      alt="Black circular badge with bright orange flask symbol representing Chemistry"
+                      class="w-16 h-16"
+                      height="64"
+                      loading="lazy"
+                      src="https://storage.googleapis.com/a1aa/image/4086e0bd-ce36-4b14-4bc2-b6e0b6e337c2.jpg"
+                      width="64"
+                    />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h2
+                      class="text-white text-2xl font-extrabold tracking-tight drop-shadow-lg truncate"
+                      title="Chemistry"
+                    >
+                      Chemistry
+                    </h2>
+                    <p
+                      class="text-orange-100 text-xs font-semibold tracking-wide drop-shadow-md max-w-xs"
+                    >
+                      Dive into reactions, elements, and compounds.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex space-x-5">
+                  <div
+                    class="flex items-center space-x-2 bg-white bg-opacity-90 rounded-full px-4 py-1.5 shadow-md hover:bg-white transition-colors duration-300"
+                  >
+                    <i class="fas fa-list-ol text-orange-600 text-base"></i>
+                    <span class="text-orange-700 font-semibold text-xs select-none"
+                      >10 Quizzes</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center space-x-2 bg-black bg-opacity-80 rounded-full px-4 py-1.5 shadow-md hover:bg-black transition-colors duration-300"
+                  >
+                    <i class="fas fa-clock text-orange-400 text-base"></i>
+                    <span class="text-orange-300 font-semibold text-xs select-none"
+                      >20 mins</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="mt-3 self-start bg-black bg-opacity-80 hover:bg-opacity-100 text-orange-400 font-bold py-2.5 px-7 rounded-full shadow-lg transition duration-300 flex items-center space-x-2.5"
+                  type="button"
+                >
+                  <span class="text-sm">Start Quiz</span>
+                  <i class="fas fa-arrow-right text-sm"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div
+              aria-label="Quiz Subject Card for History"
+              class="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500 cursor-pointer relative overflow-hidden group"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="History book symbol in bright orange on black circular background"
+                class="absolute -top-10 -right-10 w-36 h-36 opacity-20 pointer-events-none select-none"
+                height="110"
+                loading="lazy"
+                src="https://storage.googleapis.com/a1aa/image/23d31e35-b114-4313-9a24-57e1e8a3a054.jpg"
+                width="110"
+              />
+              <div
+                class="relative z-10 p-7 flex flex-col space-y-4 transition-colors duration-300 group-hover:bg-black/30 rounded-3xl"
+              >
+                <div class="flex items-center space-x-5">
+                  <div
+                    aria-hidden="true"
+                    class="flex-shrink-0 rounded-full bg-black p-3 shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-110"
+                  >
+                    <img
+                      alt="Black circular badge with bright orange book symbol representing History"
+                      class="w-16 h-16"
+                      height="64"
+                      loading="lazy"
+                      src="https://storage.googleapis.com/a1aa/image/7166f173-f113-4e0d-83c2-712dbe4bb061.jpg"
+                      width="64"
+                    />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h2
+                      class="text-white text-2xl font-extrabold tracking-tight drop-shadow-lg truncate"
+                      title="History"
+                    >
+                      History
+                    </h2>
+                    <p
+                      class="text-orange-100 text-xs font-semibold tracking-wide drop-shadow-md max-w-xs"
+                    >
+                      Learn about past events and civilizations.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex space-x-5">
+                  <div
+                    class="flex items-center space-x-2 bg-white bg-opacity-90 rounded-full px-4 py-1.5 shadow-md hover:bg-white transition-colors duration-300"
+                  >
+                    <i class="fas fa-list-ol text-orange-600 text-base"></i>
+                    <span class="text-orange-700 font-semibold text-xs select-none"
+                      >8 Quizzes</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center space-x-2 bg-black bg-opacity-80 rounded-full px-4 py-1.5 shadow-md hover:bg-black transition-colors duration-300"
+                  >
+                    <i class="fas fa-clock text-orange-400 text-base"></i>
+                    <span class="text-orange-300 font-semibold text-xs select-none"
+                      >15 mins</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="mt-3 self-start bg-black bg-opacity-80 hover:bg-opacity-100 text-orange-400 font-bold py-2.5 px-7 rounded-full shadow-lg transition duration-300 flex items-center space-x-2.5"
+                  type="button"
+                >
+                  <span class="text-sm">Start Quiz</span>
+                  <i class="fas fa-arrow-right text-sm"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Card 5 -->
+            <div
+              aria-label="Quiz Subject Card for Geography"
+              class="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500 cursor-pointer relative overflow-hidden group"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="Geography globe symbol in bright orange on black circular background"
+                class="absolute -top-10 -right-10 w-36 h-36 opacity-20 pointer-events-none select-none"
+                height="110"
+                loading="lazy"
+                src="https://storage.googleapis.com/a1aa/image/c8d614cf-c89e-46d8-7cab-6fd0a59a9c4a.jpg"
+                width="110"
+              />
+              <div
+                class="relative z-10 p-7 flex flex-col space-y-4 transition-colors duration-300 group-hover:bg-black/30 rounded-3xl"
+              >
+                <div class="flex items-center space-x-5">
+                  <div
+                    aria-hidden="true"
+                    class="flex-shrink-0 rounded-full bg-black p-3 shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-110"
+                  >
+                    <img
+                      alt="Black circular badge with bright orange globe symbol representing Geography"
+                      class="w-16 h-16"
+                      height="64"
+                      loading="lazy"
+                      src="https://storage.googleapis.com/a1aa/image/7141ae06-4a97-424e-3055-02591663c95f.jpg"
+                      width="64"
+                    />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h2
+                      class="text-white text-2xl font-extrabold tracking-tight drop-shadow-lg truncate"
+                      title="Geography"
+                    >
+                      Geography
+                    </h2>
+                    <p
+                      class="text-orange-100 text-xs font-semibold tracking-wide drop-shadow-md max-w-xs"
+                    >
+                      Discover the world’s landscapes and cultures.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex space-x-5">
+                  <div
+                    class="flex items-center space-x-2 bg-white bg-opacity-90 rounded-full px-4 py-1.5 shadow-md hover:bg-white transition-colors duration-300"
+                  >
+                    <i class="fas fa-list-ol text-orange-600 text-base"></i>
+                    <span class="text-orange-700 font-semibold text-xs select-none"
+                      >11 Quizzes</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center space-x-2 bg-black bg-opacity-80 rounded-full px-4 py-1.5 shadow-md hover:bg-black transition-colors duration-300"
+                  >
+                    <i class="fas fa-clock text-orange-400 text-base"></i>
+                    <span class="text-orange-300 font-semibold text-xs select-none"
+                      >22 mins</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="mt-3 self-start bg-black bg-opacity-80 hover:bg-opacity-100 text-orange-400 font-bold py-2.5 px-7 rounded-full shadow-lg transition duration-300 flex items-center space-x-2.5"
+                  type="button"
+                >
+                  <span class="text-sm">Start Quiz</span>
+                  <i class="fas fa-arrow-right text-sm"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Card 6 -->
+            <div
+              aria-label="Quiz Subject Card for Literature"
+              class="w-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500 cursor-pointer relative overflow-hidden group"
+              role="button"
+              tabindex="0"
+            >
+              <img
+                alt="Literature book and quill symbol in bright orange on black circular background"
+                class="absolute -top-10 -right-10 w-36 h-36 opacity-20 pointer-events-none select-none"
+                height="110"
+                loading="lazy"
+                src="https://storage.googleapis.com/a1aa/image/5e1ad91e-25ec-4256-8a6b-64e7eed44905.jpg"
+                width="110"
+              />
+              <div
+                class="relative z-10 p-7 flex flex-col space-y-4 transition-colors duration-300 group-hover:bg-black/30 rounded-3xl"
+              >
+                <div class="flex items-center space-x-5">
+                  <div
+                    aria-hidden="true"
+                    class="flex-shrink-0 rounded-full bg-black p-3 shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-110"
+                  >
+                    <img
+                      alt="Black circular badge with bright orange book and quill symbol representing Literature"
+                      class="w-16 h-16"
+                      height="64"
+                      loading="lazy"
+                      src="https://storage.googleapis.com/a1aa/image/1496e104-f436-47a4-c7aa-430d113bce81.jpg"
+                      width="64"
+                    />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h2
+                      class="text-white text-2xl font-extrabold tracking-tight drop-shadow-lg truncate"
+                      title="Literature"
+                    >
+                      Literature
+                    </h2>
+                    <p
+                      class="text-orange-100 text-xs font-semibold tracking-wide drop-shadow-md max-w-xs"
+                    >
+                      Explore classic and modern literary works.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex space-x-5">
+                  <div
+                    class="flex items-center space-x-2 bg-white bg-opacity-90 rounded-full px-4 py-1.5 shadow-md hover:bg-white transition-colors duration-300"
+                  >
+                    <i class="fas fa-list-ol text-orange-600 text-base"></i>
+                    <span class="text-orange-700 font-semibold text-xs select-none"
+                      >9 Quizzes</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-center space-x-2 bg-black bg-opacity-80 rounded-full px-4 py-1.5 shadow-md hover:bg-black transition-colors duration-300"
+                  >
+                    <i class="fas fa-clock text-orange-400 text-base"></i>
+                    <span class="text-orange-300 font-semibold text-xs select-none"
+                      >18 mins</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="mt-3 self-start bg-black bg-opacity-80 hover:bg-opacity-100 text-orange-400 font-bold py-2.5 px-7 rounded-full shadow-lg transition duration-300 flex items-center space-x-2.5"
+                  type="button"
+                >
+                  <span class="text-sm">Start Quiz</span>
+                  <i class="fas fa-arrow-right text-sm"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
   </body>
 </html>

@@ -1,18 +1,55 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
-/* 3D cartoon style card */
-.card-3d {
-  background: linear-gradient(145deg, #ff9f43, #ff6f00);
-  border-radius: 1rem;
-  box-shadow: 8px 8px 15px #cc6e00, -8px -8px 15px #ffb84d;
+/* Sidebar visible on desktop */
+@media (min-width: 640px) {
+  main {
+    margin-left: 16rem; /* sidebar width */
+    padding: 2.5rem 2.5rem 0 2.5rem;
+  }
+  #topMobileNav {
+    display: none !important;
+  }
+}
+/* Sidebar hidden on mobile, top nav visible */
+@media (max-width: 639px) {
+  main {
+    margin-left: 0 !important;
+    padding: 5.5rem 1.5rem 1.5rem 1.5rem; /* top nav height + spacing */
+  }
+  #sidebar {
+    display: none !important;
+  }
+  #topMobileNav {
+    display: flex !important;
+  }
+}
+/* Top mobile nav styles */
+#topMobileNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5rem;
+  background-color: #ea580c; /* Tailwind orange-600 */
   color: white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: space-around;
 }
-.card-3d:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 12px 12px 20px #cc6e00, -12px -12px 20px #ffb84d;
+#topMobileNav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
 }
-.info-icon {
-  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
+#topMobileNav a:hover {
+  background-color: #c2410c; /* Tailwind orange-700 */
+}
+#topMobileNav i {
+  font-size: 1.25rem;
 }
