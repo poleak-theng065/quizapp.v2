@@ -4,19 +4,25 @@
       "id": 1,
       "name": "Zen",
       "email": "zen@example.com",
-      "status": "active"
+      "password": "password123"
     },
     {
       "id": 2,
       "name": "Zenny",
       "email": "zenny@example.com",
-      "status": "inactive"
+      "password": "password456"
     },
     {
-        "id": 3,
-        "name": "Zara",
-        "email": "zara@example.com",
-        "status": "pending"
+      "id": 3,
+      "name": "Zara",
+      "email": "zara@example.com",
+      "password": "password789"
+    },
+    {
+      "id": 4,
+      "name": "New User",
+      "email": "newuser@gmail.com",
+      "password": "newpassword"
     }
   ]
 }

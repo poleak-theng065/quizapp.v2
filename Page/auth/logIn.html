@@ -17,6 +17,7 @@
         font-family: "Roboto", sans-serif;
       }
     </style>
+    <script src="../../../asset/Javascript/auth/logIn.js"></script>
   </head>
   <body
     class="min-h-screen bg-white flex items-center justify-center px-4 py-8"
@@ -29,7 +30,7 @@
           alt="Quiz app logo with orange background and white text reading Quiz App"
           class="w-20 h-20 sm:w-24 sm:h-24 rounded-full"
           height="96"
-          src="https://storage.googleapis.com/a1aa/image/738af066-2388-4a3b-bc5e-7e7152da4bd0.jpg"
+          src="../../asset/image/LogoQuizApp.png"
           width="96"
         />
       </div>
@@ -38,7 +39,7 @@
       >
         Login to Your Quiz App
       </h1>
-      <form action="#" class="space-y-5 sm:space-y-6" method="POST">
+      <form class="space-y-5 sm:space-y-6" onsubmit="false">
         <div>
           <label
             class="block text-black font-semibold mb-2 text-sm sm:text-base"
@@ -104,7 +105,7 @@
         </div>
         <button
           class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-md transition-colors duration-300 text-sm sm:text-base"
-          type="submit"
+          id="loginBtn"
         >
           Log In
         </button>

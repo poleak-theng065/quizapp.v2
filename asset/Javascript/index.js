@@ -1,4 +1,4 @@
-fetch('data.json')
+fetch('../../data.json')
   .then(response => response.json())
   .then(data => {
     const tbody = document.getElementById('userTableBody');
